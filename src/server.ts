@@ -1,12 +1,21 @@
 import express from 'express'
 import http from 'http'
 import mongoose from 'mongoose'
+import cors from 'cors'
 
 import { config } from './configure/configure'
 import { Logger } from './helpers/Logger'
 import { router as userRouters } from './routers/user'
 
 const application = express()
+
+/** CORS Configuration **/
+application.use(
+    cors({
+        origin: 'http://localhost:5173',
+        credentials: true
+    })
+)
 
 /** Connect to MongoDB **/
 mongoose.Promise = global.Promise
