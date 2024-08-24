@@ -27,7 +27,7 @@ const ServerStarter = () => {
 
         res.on('finish', () => {
             /** Log outgoing response **/
-            Logger.info(`INFO incoming -> METHOD:[${req.method}] | URL:[${req.url}] - STATUS:[${res.statusCode}]`)
+            Logger.info(`INFO incoming -> METHOD:[${req.method}] | URL:[${req.url}] | STATUS:[${res.statusCode}] | IP:[${req.socket.remoteAddress}]`)
         })
 
         next()
