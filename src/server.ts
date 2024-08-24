@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 
 import { config } from './configure/configure'
 import { Logger } from './helpers/Logger'
+import { router as userRouters } from './routers/user'
 
 const application = express()
 
@@ -37,6 +38,7 @@ const ServerStarter = () => {
     application.use(express.urlencoded({ extended: true }))
 
     /** Routes **/
+    application.use('/users', userRouters)
 
     /** Health Check **/
     application.get('/ping', (req, res, next) => res.status(200).json({ message: 'pong' }))
