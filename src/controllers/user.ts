@@ -50,7 +50,7 @@ const UpdateUser = async (req: Request, res: Response, next: NextFunction) => {
 const DeleteUser = async (req: Request, res: Response, next: NextFunction) => {
     const { userId } = req.params
 
-    return await User.findByIdAndDelete(userId)
+    return await User.findByIdAndDelete({ _id: userId })
         .then((user) => {
             user ? res.status(201).json({ massage: 'Deleted' }) : res.status(404).json({ message: 'Not found' })
         })
