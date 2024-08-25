@@ -37,7 +37,6 @@ const UpdateUser = async (req: Request, res: Response, next: NextFunction) => {
         .then((user) => {
             if (!user) return res.status(404).json({ message: 'Not found' })
             user.set(req.body)
-
             return user
                 .save()
                 .then((user) => res.status(201).json({ user }))
