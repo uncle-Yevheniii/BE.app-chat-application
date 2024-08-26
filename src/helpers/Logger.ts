@@ -1,4 +1,4 @@
-import colors from 'colors'
+import * as colors from 'colors/safe'
 
 export class Logger {
     public static info = (msg: any) =>
