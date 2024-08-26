@@ -1,5 +1,5 @@
 import express from 'express'
-import controller from '../controllers/massages'
+// import controller from '../controllers/massages'
 
 export const router = express.Router()
 
