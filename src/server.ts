@@ -6,6 +6,7 @@ import cors from 'cors'
 import { config } from './configure/configure'
 import { Logger } from './helpers/Logger'
 import { router as userRouters } from './routers/user'
+import { router as chatRouters } from './routers/chat'
 
 const application = express()
 
@@ -48,6 +49,7 @@ const ServerStarter = () => {
 
     /** Routes **/
     application.use('/users', userRouters)
+    application.use('/chats', chatRouters)
 
     /** Health Check **/
     application.get('/ping', (req, res, next) => res.status(200).json({ message: 'pong' }))
